@@ -1,0 +1,548 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<title>JAVA注解(Annotation)</title>
+<style type="text/css">span.s1 {background-color: #FFFFFF; color: #3366FF}span.s2 {background-color: #FFFFFF; color: #038003}</style>
+</head>
+<body>
+<h1 align="center" class="root">
+<a name="3uasdbjgd1tov3geq3r17v1mmd">JAVA注解(Annotation)</a>
+</h1>
+<div align="center" class="globalOverview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/JAVA%E6%B3%A8%E8%A7%A3(Annotation) 2.jpg"></div>
+<h2 class="topic">
+<a name="42rujdimq3iurnffdpjljj59mv">概念定义</a>
+</h2>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E6%A6%82%E5%BF%B5%E5%AE%9A%E4%B9%89 2.jpg"></div>
+<h3 class="topic">
+<a name="2ce2avbc9986uh4bn562or048t">&nbsp;注解</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E6%B3%A8%E8%A7%A3 2.jpg"></div>
+<h3 class="topic">
+<a name="3tvkdj04v5dhifg642cele1ler">&nbsp;&nbsp;定义：提供了一种为程序元素（包、类、构造器、方法、成员变量、参数、局域变量）设置元数据的方法；Annotation不能运行，它只有成员变量，没有方法。跟public、final等修饰符的地位一样，都是程序元素的一部分，Annotation不能作为一个程序元素使用。</a>
+</h3>
+<h3 class="topic">
+<a name="1031lb2h5f5t5pejuvveu8e5d8">&nbsp;&nbsp;基本原则：注解不能直接干扰程序代码的运行，无论增加或删除注解，代码都能够正常运行</a>
+</h3>
+<h3 class="topic">
+<a name="28oq5be85dvsrsbm4rrupct3af">&nbsp;&nbsp;根据注解参数的个数分类</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E6%A0%B9%E6%8D%AE%E6%B3%A8%E8%A7%A3%E5%8F%82%E6%95%B0%E7%9A%84%E4%B8%AA%E6%95%B0%E5%88%86%E7%B1%BB 2.jpg"></div>
+<h3 class="topic">
+<a name="1s6oot2hkt6h69bs250ls95494">&nbsp;&nbsp;&nbsp;标记注解：一个没有成员定义的Annotation类型被称为标记注解。这种Annotation类型仅使用自身的存在与否来为我们提供信息。比如后面的系统注解@Override;</a>
+</h3>
+<h3 class="topic">
+<a name="57anldr16dndbrifeda3ck46un">&nbsp;&nbsp;&nbsp;单值注解</a>
+</h3>
+<h3 class="topic">
+<a name="4tvesih2smeaaied8t6dbqefhi">&nbsp;&nbsp;&nbsp;完整注解</a>
+</h3>
+<h3 class="topic">
+<a name="6r5r997oau02ofj4s7t8v9qca9">&nbsp;&nbsp;根据注解使用方法和用途分类</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E6%A0%B9%E6%8D%AE%E6%B3%A8%E8%A7%A3%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%92%8C%E7%94%A8%E9%80%94%E5%88%86%E7%B1%BB 2.jpg"></div>
+<h3 class="topic">
+<a name="2i1i1346qpb7kp84q27jr25mla">&nbsp;&nbsp;&nbsp;JDK内置系统注解</a>
+</h3>
+<h3 class="topic">
+<a name="7625728ijhu8dgpf683mck9oc2">&nbsp;&nbsp;&nbsp;元注解</a>
+</h3>
+<h3 class="topic">
+<a name="3iq7thld8t8b8ceu182r2rqbq7">&nbsp;&nbsp;&nbsp;自定义注解</a>
+</h3>
+<h3 class="topic">
+<a name="0fa1rjji06m415vkqb56p69cmp">&nbsp;元数据</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E5%85%83%E6%95%B0%E6%8D%AE 2.jpg"></div>
+<h3 class="topic">
+<a name="4mikcfmjdqr3gcpu4t1i3b54at">&nbsp;&nbsp;定义：描述数据的数据</a>
+</h3>
+<h3 class="topic">
+<a name="3260q6dmet3mcc4r7mobjvpq3l">&nbsp;&nbsp;作用：</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E4%BD%9C%E7%94%A8%EF%BC%9A 2.jpg"></div>
+<h3 class="topic">
+<a name="2qm54sl24kirf5g3o2o3939fov">&nbsp;&nbsp;&nbsp;①编写文档：通过代码里标识的元数据生成文档【生成文档doc文档】</a>
+</h3>
+<h3 class="topic">
+<a name="1ecj7srr0b0moukm44dul3tj6i">&nbsp;&nbsp;&nbsp;②代码分析：通过代码里标识的元数据对代码进行分析【使用反射】</a>
+</h3>
+<h3 class="topic">
+<a name="6vov53igb4n683vs0llma3fcqp">&nbsp;&nbsp;&nbsp;③编译检查：通过代码里标识的元数据让编译器能够实现基本的编译检查【Override】</a>
+</h3>
+<h2 class="topic">
+<a name="45hdcidpj7lm4urvljvc0jo2u4">系统注解</a>
+</h2>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E7%B3%BB%E7%BB%9F%E6%B3%A8%E8%A7%A3 2.jpg"></div>
+<h3 class="topic">
+<a name="2c2d3l6266btbvnpu5ce5o65d8">&nbsp;标准注解</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E6%A0%87%E5%87%86%E6%B3%A8%E8%A7%A3 2.jpg"></div>
+<h3 class="topic">
+<a name="5vp433v8643fqsgh3lu02ud638">&nbsp;&nbsp;@Override：是一个标记注解类型，它被用作标注方法。它说明了被标注的方法重载了父类的方法，起到了断言的作用。</a>
+</h3>
+<h3 class="topic">
+<a name="6rj3fjulgmc1bfjdb77kto1ngb">&nbsp;&nbsp;@Deprecated</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/@Deprecated 2.jpg"></div>
+<h3 class="topic">
+<a name="0h7uq2lvien7o4272k4u9nt4l3">&nbsp;&nbsp;&nbsp;标记注解；用于修饰已经过时的方法;</a>
+</h3>
+<h3 class="topic">
+<a name="56es5lia20ne00kht628nian7n">&nbsp;&nbsp;&nbsp;@Deprecated这个annotation类型和javadoc中的 @deprecated这个tag是有区别的：前者是java编译器识别的，而后者是被javadoc工具所识别用来生成文档（包含程序成员为什么已经过时、它应当如何被禁止或者替代的描述）。</a>
+</h3>
+<h3 class="topic">
+<a name="7nd7t6epnri8ldo1utp5hln6b4">&nbsp;&nbsp;@SuppressWarnnings：</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/@SuppressWarnnings%EF%BC%9A 2.jpg"></div>
+<h3 class="topic">
+<a name="42bssvuuq8b95h7v2ttovvsinp">&nbsp;&nbsp;&nbsp;作用：用于有选择的关闭编译器对类、方法、成员变量、变量初始化的警告。</a>
+</h3>
+<h3 class="topic">
+<a name="4cicp9aue63b76q9ev5rf8cekl">&nbsp;&nbsp;&nbsp;参数：</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E5%8F%82%E6%95%B0%EF%BC%9A 2.jpg"></div>
+<h3 class="topic">
+<a name="1ab0jc4i50d9t1as8og4ehds0p">&nbsp;&nbsp;&nbsp;&nbsp;deprecation：使用了不赞成使用的类或方法时的警告；</a>
+</h3>
+<h3 class="topic">
+<a name="521q3dl3jb2vg244ohcr5gr4hi">&nbsp;&nbsp;&nbsp;&nbsp;unchecked：执行了未检查的转换时的警告，例如当使用集合时没有用泛型 (Generics) 来指定集合保存的类型;</a>
+</h3>
+<h3 class="topic">
+<a name="3lfpi8qpedr1l3snopndsac6dm">&nbsp;&nbsp;&nbsp;&nbsp;fallthrough：当 Switch 程序块直接通往下一种情况而没有 Break 时的警告;</a>
+</h3>
+<h3 class="topic">
+<a name="4v33jekjhm7jrog1vnp69otmns">&nbsp;&nbsp;&nbsp;&nbsp;path：在类路径、源文件路径等中有不存在的路径时的警告;</a>
+</h3>
+<h3 class="topic">
+<a name="0slddqcp79vflbnpariapudv45">&nbsp;&nbsp;&nbsp;&nbsp;serial：当在可序列化的类上缺少 serialVersionUID 定义时的警告;</a>
+</h3>
+<h3 class="topic">
+<a name="5e91b9jl62ca3ovckt1kq2val3">&nbsp;&nbsp;&nbsp;&nbsp;finally：任何 finally 子句不能正常完成时的警告;</a>
+</h3>
+<h3 class="topic">
+<a name="6td2lsp33hg5o5ujp7rg3fn8hn">&nbsp;&nbsp;&nbsp;&nbsp;all：关于以上所有情况的警告。</a>
+</h3>
+<h3 class="topic">
+<a name="4cii2i99cf0h6j03r6em9psk1c">&nbsp;&nbsp;&nbsp;例子</a>
+</h3>
+<h3 class="topic">
+<a name="1vgh6fccgo27vgn1k2n30nnv0e">&nbsp;&nbsp;@SafeVarargs</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/@SafeVarargs 2.jpg"></div>
+<h3 class="topic">
+<a name="7pm12kuls95bg1uor3m3tjk8lg">&nbsp;&nbsp;&nbsp;@SafeVarargs是JDK 7 专门为抑制&ldquo;堆污染&rdquo;警告提供的。</a>
+</h3>
+<div class="notesContainer">
+<p>Heap Pollution(堆污染):</p>
+<p>在Java编程语言中， 当一个 可变泛型参数 指向一个 无泛型参数 时，堆污染(Heap Pollution)就有可能发生。</p>
+<p></p>
+<p>
+<span class="s1">class SafeVarargsTest2{</span>
+</p>
+<p>
+<span class="s1">    </span><span class="s2">//此方法接受的是一个泛型为Integer类型的Set集合，假如我们将一个没有泛型的Set对象传给此方法时，则有可能造成堆污染</span><span class="s1"></span>
+</p>
+<p>
+<span class="s1">    public static void method(Set&lt;Integer&gt; obj){</span>
+</p>
+<p>
+<span class="s1"></span>
+</p>
+<p>
+<span class="s1">    }</span>
+</p>
+<p>
+<span class="s1">    public static void main(String[] args){</span>
+</p>
+<p>
+<span class="s1">        Set set = new TreeSet();</span>
+</p>
+<p>
+<span class="s1">        set.add("abc");</span>
+</p>
+<p>
+<span class="s1">        method(set);</span>
+</p>
+<p>
+<span class="s1">    }</span>
+</p>
+<p>
+<span class="s1"></span>
+</p>
+<p>
+<span class="s1">}</span>
+</p>
+<p>在没有加上@SafeVarargs时 调用method(set)方法提示如下：<span class="s1"></span>
+</p>
+<p>
+<span class="s1">Unchecked assignment: 'java.util.Set' to 'java.util.Set&lt;java.lang.Integer&gt;' less... (Ctrl+F1) </span>
+</p>
+<p>
+<span class="s1">Signals places where an unchecked warning is issued by the compiler, for example:</span>
+</p>
+<p>
+<span class="s1"></span>
+</p>
+<p>
+<span class="s1">  void f(HashMap map) {</span>
+</p>
+<p>
+<span class="s1">    map.put("key", "value");</span>
+</p>
+<p>
+<span class="s1">  }</span>
+</p>
+<p>
+<span class="s1">  </span>
+</p>
+<p>
+<span class="s1">Hint: Pass -Xlint:unchecked to javac to get more details.</span>
+</p>
+</div>
+<h3 class="topic">
+<a name="2mivjqm4l93heaq8mj4qldmnbq">&nbsp;&nbsp;&nbsp;把一个不带泛型的对象赋给一个带泛型的变量是，就会发生堆污染。</a>
+</h3>
+<h3 class="topic">
+<a name="450dlohr4in0q393gcbvep8acj">&nbsp;&nbsp;@Functionlnterface</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/@Functionlnterface 2.jpg"></div>
+<h3 class="topic">
+<a name="5kmtq1tt0cvvqpch7mmvqceidn">&nbsp;&nbsp;&nbsp;@Functionlnterface （java8新增）：表明该接口是一个函数式接口，只能拥有 一个抽象方法。</a>
+</h3>
+<div class="notesContainer">
+<p>/**</p>
+<p> * 非default、static方法不能有实现，否则编译错误：Abstract methods do not specify a body</p>
+<p> * default、static方法必须有具体的实现，否则编译错误：This method requires a body instead of a semicolon</p>
+<p> * 可以拥有多个default方法</p>
+<p> * 可以拥有多个static方法</p>
+<p> * 使用接口中类型时，仅仅需要实现抽象方法，default、static方法不需要强制自己新实现</p>
+<p> */</p>
+<p>@FunctionalInterface</p>
+<p>public interface FunctionlnterfaceTest {</p>
+<p></p>
+<p>    static void foo(){</p>
+<p>        System.out.println("foo静态方法");</p>
+<p>    }</p>
+<p>    static void foo2(){</p>
+<p>        System.out.println("第二个static方法");</p>
+<p>    }</p>
+<p>    /**</p>
+<p>     * Java8新特性&ndash;Interface中的default方法（接口默认方法）;该特性又叫扩展方法。</p>
+<p>     *</p>
+<p>     */</p>
+<p>    default void bar(){</p>
+<p>        System.out.println("bar 默认方法");</p>
+<p>    }</p>
+<p>    default void bar2(){</p>
+<p>        System.out.println("第二个default方法");</p>
+<p>    }</p>
+<p></p>
+<p>    void tests();</p>
+<p></p>
+<p>    //@FunctionalInterface 只能拥有 一个抽象方法</p>
+<p>    //void test2();</p>
+<p></p>
+<p>    //void test3();</p>
+<p>}</p>
+</div>
+<h3 class="topic">
+<a name="7mcn34mukvuvpidmgnod2as932">&nbsp;元注解</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E5%85%83%E6%B3%A8%E8%A7%A3 2.jpg"></div>
+<h3 class="topic">
+<a name="6pp0esfhjjs2c85p6dguh77efb">&nbsp;&nbsp;定义：元注解的作用就是负责注解其他注解</a>
+</h3>
+<h3 class="topic">
+<a name="6fqokpfiq4d1t64t2l6p1tr6tt">&nbsp;&nbsp;@Retention  (保留)</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/@Retention  (%E4%BF%9D%E7%95%99) 2.jpg"></div>
+<h3 class="topic">
+<a name="1k6j9rnok2kobka0bnvi7vd7v2">&nbsp;&nbsp;&nbsp;作用：用于指定Annotation可以保留多长时间。</a>
+</h3>
+<h3 class="topic">
+<a name="4e845s7fbuold4pqs19otjfks6">&nbsp;&nbsp;&nbsp;参数：value</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E5%8F%82%E6%95%B0%EF%BC%9Avalue 3.jpg"></div>
+<h3 class="topic">
+<a name="0l9a3p15ef5skm9dr3cib7d6e3">&nbsp;&nbsp;&nbsp;&nbsp;该value成员变量是RetentionPolicy枚举类型</a>
+</h3>
+<h3 class="topic">
+<a name="3miogn59j8e66amqdk74h40lea">&nbsp;&nbsp;&nbsp;&nbsp;值枚举</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E5%80%BC%E6%9E%9A%E4%B8%BE 3.jpg"></div>
+<h3 class="topic">
+<a name="6jcvpdbn0h2260p8i355ilqq46">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RetentionPolicy.SOURCE：Annotation只保留在源代码中，编译器编译时，直接丢弃这种Annotation。</a>
+</h3>
+<h3 class="topic">
+<a name="0e3v7qfjhnkpi2mnq8os0qjkme">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RetentionPolicy.CLASS：编译器把Annotation记录在class文件中。当运行Java程序时，JVM中不再保留该Annotation。</a>
+</h3>
+<h3 class="topic">
+<a name="272jv13qq6op6oh2ofic17v0hl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RetentionPolicy.RUNTIME：编译器把Annotation记录在class文件中。当运行Java程序时，JVM会保留该Annotation，程序可以通过反射获取该Annotation的信息。</a>
+</h3>
+<h3 class="topic">
+<a name="52sb8mpsg5rjatte13h1rltivv">&nbsp;&nbsp;&nbsp;示例</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E7%A4%BA%E4%BE%8B 2.jpg"></div>
+<h3 class="topic">
+<a name="2d5j3ul9t3kgacpbda651p1b1t">&nbsp;&nbsp;&nbsp;&nbsp;@Retention(value=RetentionPolicy.RUNTIME)​//直接指定；@Retention(RetentionPolicy.RUNTIME)</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/@Retention(value=RetentionPolicy.RUNTIME)%E2%80%8B  %E7%9B%B4%E6%8E%A5%E6%8C%87%E5%AE%9A%EF%BC%9B@Retention(RetentionPolicy.RUNTIME) 2.jpg"></div>
+<h3 class="topic">
+<a name="273s4vkaqnqh1er0hrehaeq7f0">&nbsp;&nbsp;@Target (目标)</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/@Target (%E7%9B%AE%E6%A0%87) 2.jpg"></div>
+<h3 class="topic">
+<a name="5tmtraopfboja0s0rq79vh5gnv">&nbsp;&nbsp;&nbsp;作用：指定Annotation用于修饰哪些程序元素。</a>
+</h3>
+<h3 class="topic">
+<a name="4p7c2eehot3tmae9cuusqr1pih">&nbsp;&nbsp;&nbsp;参数：value</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E5%8F%82%E6%95%B0%EF%BC%9Avalue 4.jpg"></div>
+<h3 class="topic">
+<a name="1euk7mjs9ajlkhu7f51qovd1qo">&nbsp;&nbsp;&nbsp;&nbsp;该value成员变量类型为ElementType[ ]，ElementType为枚举类型，</a>
+</h3>
+<h3 class="topic">
+<a name="1e1colbv50d1htcgci3st1f4ng">&nbsp;&nbsp;&nbsp;&nbsp;值枚举</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E5%80%BC%E6%9E%9A%E4%B8%BE 4.jpg"></div>
+<h3 class="topic">
+<a name="3fvrbtpsvu3l98kjpcl2s3uj18">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ElementType.TYPE：能修饰类、接口或枚举类型</a>
+</h3>
+<h3 class="topic">
+<a name="7hnt9es0df04cfr546k24jmfpp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ElementType.FIELD：能修饰成员变量</a>
+</h3>
+<h3 class="topic">
+<a name="10kfmunr24c1hd9u9qh6asr976">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ElementType.METHOD：能修饰方法</a>
+</h3>
+<h3 class="topic">
+<a name="2lm2t4sg9o7ubc5vh3nafhfams">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ElementType.PARAMETER：能修饰参数</a>
+</h3>
+<h3 class="topic">
+<a name="523cevhkcd495ea6tkk3fa583m">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ElementType.CONSTRUCTOR：能修饰构造器</a>
+</h3>
+<h3 class="topic">
+<a name="6esf7e4mp4vv0mu8fq0j6drniv">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ElementType.LOCAL_VARIABLE：能修饰局部变量</a>
+</h3>
+<h3 class="topic">
+<a name="4urnp2l2kon3noivno2oui7ilt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ElementType.ANNOTATION_TYPE：能修饰注解</a>
+</h3>
+<h3 class="topic">
+<a name="2mlsita8fk0j6n74nfrup9t49m">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ElementType.PACKAGE：能修饰包</a>
+</h3>
+<h3 class="topic">
+<a name="3ug2iekt4sfsdeuqsp1bna3gg8">&nbsp;&nbsp;&nbsp;示例：</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E7%A4%BA%E4%BE%8B%EF%BC%9A 2.jpg"></div>
+<h3 class="topic">
+<a name="79c740869kb3vdv6innj53ul19">&nbsp;&nbsp;&nbsp;&nbsp;单个ElementType：@Target(ElementType.FIELD)public @interface AnnTest { String name() default "sunchp";}</a>
+</h3>
+<h3 class="topic">
+<a name="7jm60hho33k7l2ru1p8p2k0kdp">&nbsp;&nbsp;&nbsp;&nbsp;多个ElementType：@Target({ ElementType.FIELD, ElementType.METHOD })public @interface AnnTest { String name() default "sunchp";}</a>
+</h3>
+<h3 class="topic">
+<a name="0905npnvtu1odul1ufo7fs2917">&nbsp;&nbsp;@Documented</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/@Documented 2.jpg"></div>
+<h3 class="topic">
+<a name="3d7bfhn49m635rjm90j4j1pvsq">&nbsp;&nbsp;&nbsp;使用了@Documented修饰定义，则在用javadoc命令生成API文档后，所有使用注解A修饰的程序元素，将会包含注解A的说明。</a>
+</h3>
+<h3 class="topic">
+<a name="1q2n3k6geg5ii6t2q5gm8de3an">&nbsp;&nbsp;@Inherited</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/@Inherited 2.jpg"></div>
+<h3 class="topic">
+<a name="5626n6ggkkslhf3kfsk65st6g4">&nbsp;&nbsp;&nbsp;指定Annotation具有继承性。允许子类继承父类注解</a>
+</h3>
+<h3 class="topic">
+<a name="73qemj50osca0mm1mhu4fc4gqv">&nbsp;&nbsp;&nbsp;注：如果使用该元注解来注解除类以外的任何程序元素，那么该元注解就没有效果。还要注意的是，这个元注解只会使注解从超类继承;实现类的接口上的注解使用该元注解也没有效果。</a>
+</h3>
+<h2 class="topic">
+<a name="47gobj10n6ggk6gb6br39cnkqr">自定义注解</a>
+</h2>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3 2.jpg"></div>
+<h3 class="topic">
+<a name="0ogco2a7lv1m3pb9cth413kfcu">&nbsp;使用@interface自定义注解时，自动继承了java.lang.annotation.Annotation接口，由编译程序自动完成其他细节。在定义注解时，不能继承其他的注解或接口。@interface用来声明一个注解，其中的每一个方法实际上是声明了一个配置参数。方法的名称就是参数的名称，返回值类型就是参数的类型（返回值类型只能是基本类型、Class、String、enum）。可以通过default来声明参数的默认值。</a>
+</h3>
+<h3 class="topic">
+<a name="7sh39hi5rmo4e7mhol1hmbhpq0">&nbsp;定义注解格式：　　public @interface 注解名 {定义体}</a>
+</h3>
+<h3 class="topic">
+<a name="42c9vsshgmd9dkf9d3c4maja9s">&nbsp;注解参数的可支持数据类型：</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E6%B3%A8%E8%A7%A3%E5%8F%82%E6%95%B0%E7%9A%84%E5%8F%AF%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9A 2.jpg"></div>
+<h3 class="topic">
+<a name="19j7n253bb083mt7ub9tt0o6rl">&nbsp;&nbsp;1.所有基本数据类型（int,float,boolean,byte,double,char,long,short)</a>
+</h3>
+<h3 class="topic">
+<a name="37a38jujq02ich5hj7j4vjq8u4">&nbsp;&nbsp;2.String类型</a>
+</h3>
+<h3 class="topic">
+<a name="55h01gk8bun17alv89a3lm5jcc">&nbsp;&nbsp;3.Class类型</a>
+</h3>
+<h3 class="topic">
+<a name="4e1qr4pg95lhmu0icu862qo4be">&nbsp;&nbsp;4.enum类型</a>
+</h3>
+<h3 class="topic">
+<a name="49jag74hiil2mbrolkgg1qj3i2">&nbsp;&nbsp;5.Annotation类型</a>
+</h3>
+<h3 class="topic">
+<a name="43sirj56drba1g7u3lkndl03ou">&nbsp;&nbsp;6.以上所有类型的数组</a>
+</h3>
+<h3 class="topic">
+<a name="7hlt51m8rc7s5djhk353cp8rqi">&nbsp;参数设定：</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E5%8F%82%E6%95%B0%E8%AE%BE%E5%AE%9A%EF%BC%9A 2.jpg"></div>
+<h3 class="topic">
+<a name="0l2gao7hstee4qrp9l2opocelc">&nbsp;&nbsp;第一,只能用public或默认(default)这两个访问权修饰.</a>
+</h3>
+<h3 class="topic">
+<a name="3vgg4rm4nikid5bqn287d6muip">&nbsp;&nbsp;第二,参数成员只能用上述提及的可支持数据类型.</a>
+</h3>
+<h3 class="topic">
+<a name="6mbm1sjcbpns27fjkrkg95jp1b">&nbsp;&nbsp;第三,如果只有一个参数成员,最好把参数名称设为"value",后加小括号.</a>
+</h3>
+<h2 class="topic">
+<a name="6ova7eg8pv60dindgeld21i3mo">注解元素数据类型</a>
+</h2>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E6%B3%A8%E8%A7%A3%E5%85%83%E7%B4%A0%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B 2.jpg"></div>
+<h3 class="topic">
+<a name="4uikni3bi8n52ttv3st49obthu">&nbsp;1.所有基本数据类型（int,float,boolean,byte,double,char,long,short)</a>
+</h3>
+<h3 class="topic">
+<a name="14f55tr5q55tq7jb0ai6m985ej">&nbsp;2.String类型</a>
+</h3>
+<h3 class="topic">
+<a name="088tlhr32q90hc3gjbtlhc7ajn">&nbsp;3.Class类型</a>
+</h3>
+<h3 class="topic">
+<a name="4iak0hupe14pj01qaledspglal">&nbsp;4.enum类型</a>
+</h3>
+<h3 class="topic">
+<a name="7kd6tee2pgo5rub0b3ml0mird3">&nbsp;5.Annotation类型</a>
+</h3>
+<h3 class="topic">
+<a name="6iaakhle1quq5agcbv91jagihv">&nbsp;6.以上所有类型的数组</a>
+</h3>
+<h2 class="topic">
+<a name="034spjio156u4n2h5tv235c1cr">提取注解</a>
+</h2>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E6%8F%90%E5%8F%96%E6%B3%A8%E8%A7%A3 2.jpg"></div>
+<h3 class="topic">
+<a name="4p5it86rmoh6qvl5nq1k26gkb9">&nbsp;接口：注解处理器类库(java.lang.reflect.AnnotatedElement)：</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E6%8E%A5%E5%8F%A3%EF%BC%9A%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86%E5%99%A8%E7%B1%BB%E5%BA%93(java.lang.reflect.AnnotatedElement)%EF%BC%9A 2.jpg"></div>
+<h3 class="topic">
+<a name="0ulhgu3cvcd02n5pfe18dj8mut">&nbsp;&nbsp;该接口代表程序中可以被注解的程序元素。</a>
+</h3>
+<h3 class="topic">
+<a name="116gitn6o20ija996qmcqk24op">&nbsp;&nbsp;实现类</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E5%AE%9E%E7%8E%B0%E7%B1%BB 2.jpg"></div>
+<h3 class="topic">
+<a name="7g20he38eoq7f5hiem25ug4umb">&nbsp;&nbsp;&nbsp;Class:类定义</a>
+</h3>
+<h3 class="topic">
+<a name="56victi16lh0dvi8af0uplks9g">&nbsp;&nbsp;&nbsp;Constructor:构造器定义</a>
+</h3>
+<h3 class="topic">
+<a name="379chbpenml4jne9km6svfh8ml">&nbsp;&nbsp;&nbsp;Field:类的成员变量定义</a>
+</h3>
+<h3 class="topic">
+<a name="7a2vhph9b12m46sogbv63tspq9">&nbsp;&nbsp;&nbsp;Method:类的方法定义。</a>
+</h3>
+<h3 class="topic">
+<a name="1n6jv8e17qrr98fn9rkm2b13ia">&nbsp;&nbsp;&nbsp;Package:类的包定义。</a>
+</h3>
+<h3 class="topic">
+<a name="5hs9mk0au31g71s9nmbq9918p7">&nbsp;&nbsp;四个方法</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E5%9B%9B%E4%B8%AA%E6%96%B9%E6%B3%95 2.jpg"></div>
+<h3 class="topic">
+<a name="2njcjmotnl9u92bom1n63qide3">&nbsp;&nbsp;&nbsp;方法1：&lt;T extends Annotation&gt; T getAnnotation(Class&lt;T&gt; annotationClass): 返回改程序元素上存在的、指定类型的注解，如果该类型注解不存在，则返回null。</a>
+</h3>
+<h3 class="topic">
+<a name="26c57qiuvvcjt4e2m5383rbgs5">&nbsp;&nbsp;&nbsp;方法2：Annotation[] getAnnotations():返回该程序元素上存在的所有注解。</a>
+</h3>
+<h3 class="topic">
+<a name="41dg6bkvn6qk4l0cov3sb17eim">&nbsp;&nbsp;&nbsp;方法3：boolean is AnnotationPresent(Class&lt;?extends Annotation&gt; annotationClass):判断该程序元素上是否包含指定类型的注解，存在则返回true，否则返回false.</a>
+</h3>
+<h3 class="topic">
+<a name="7l5dcecadqjmgsn2b5c7nkd0i9">&nbsp;&nbsp;&nbsp;方法4：Annotation[] getDeclaredAnnotations()：返回直接存在于此元素上的所有注释。与此接口中的其他方法不同，该方法将忽略继承的注释。（如果没有注释直接存在于此元素上，则返回长度为零的一个数组。）该方法的调用者可以随意修改返回的数组；这不会对其他调用者返回的数组产生任何影响。</a>
+</h3>
+<h3 class="topic">
+<a name="5mscm82v0fscquoorg2k9uqj6r">&nbsp;接口：java.lang.annotation.Annotation</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E6%8E%A5%E5%8F%A3%EF%BC%9Ajava.lang.annotation.Annotation 2.jpg"></div>
+<h3 class="topic">
+<a name="4edc4tq0lnt9gb13aln6i7sf4n">&nbsp;&nbsp;这个接口是所有Annotation类型的父接口</a>
+</h3>
+<h3 class="topic">
+<a name="5pq49oeh92ocpk5crohbp7aa3q">&nbsp;&nbsp;接口的主要方法是annotationType( )，用于返回该注解的java.lang.Class。</a>
+</h3>
+<h3 class="topic">
+<a name="79slu290pc7i4a33ad51bah58i">&nbsp;APT（Annotation Processing Tool）</a>
+</h3>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/APT%EF%BC%88Annotation Processing Tool%EF%BC%89 2.jpg"></div>
+<h3 class="topic">
+<a name="4fu1hdf81qoq87tdftb4vejue5">&nbsp;&nbsp;当开发者使用了Annotation修饰了类、方法、Field等成员之后，这些Annotation不会自己生效，必须由开发者提供相应的代码来提取并处理Annotation信息。这些处理提取和处理Annotation的代码统称为APT</a>
+</h3>
+<h3 class="topic">
+<a name="2s3a92unv61oemkg6uua4kkbmn">&nbsp;反射知识</a>
+</h3>
+<h2 class="topic">
+<a name="0591ir9j58s3i3135vc4aosl2k">注解本质</a>
+</h2>
+<div class="overview">
+<img src="JAVA%E6%B3%A8%E8%A7%A3(Annotation)_files/images/%E6%B3%A8%E8%A7%A3%E6%9C%AC%E8%B4%A8 2.jpg"></div>
+<h3 class="topic">
+<a name="26drp5vv1n5qsnvn738aappaap">&nbsp;注解实质上会被编译器编译为接口</a>
+</h3>
+<h3 class="topic">
+<a name="1akbcopucbh72cpbgftajha24k">&nbsp;并且继承java.lang.annotation.Annotation接口</a>
+</h3>
+<h3 class="topic">
+<a name="48d6vfvtluq51ndq7g0cikqure">&nbsp;注解的成员变量会被编译器编译为同名的抽象方法</a>
+</h3>
+<h3 class="topic">
+<a name="6g1vjrvihss822kgq88at4it1r">&nbsp;每个方法都有RuntimeVisibleAnnotations属性位置，用来放置注解和注解的成员变量赋值。</a>
+</h3>
+</body>
+</html>
