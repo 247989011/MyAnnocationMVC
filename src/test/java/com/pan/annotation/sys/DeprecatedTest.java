@@ -1,9 +1,9 @@
-package com.pan.annotation;
+package com.pan.annotation.sys;
 
 import java.util.Date;
 
 public class DeprecatedTest {
-
+    //标记注解；用于修饰已经过时的方法;
     @Deprecated
     public void doSomething(){
         System.out.println("do something");
