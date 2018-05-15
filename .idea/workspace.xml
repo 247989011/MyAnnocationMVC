@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6572d70-92c3-4c24-8b3e-fcd736aa59b8" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -205,7 +206,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -469,12 +470,12 @@
       <workItem from="1525777898042" duration="18290000" />
       <workItem from="1525849334846" duration="2573000" />
       <workItem from="1526106617403" duration="9529000" />
-      <workItem from="1526166519622" duration="45634000" />
+      <workItem from="1526166519622" duration="45971000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90451000" />
+    <option name="totallyTimeSpent" value="90788000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1052,7 +1053,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited />
+          <last-edited>Web (MyminiSpring)|Web</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1064,7 +1065,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited />
+          <last-edited>jQuery 1.8.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1100,7 +1101,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited />
+          <last-edited>Maven: javax.servlet:javax.servlet-api:3.1.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
