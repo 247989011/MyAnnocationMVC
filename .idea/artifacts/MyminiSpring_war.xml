@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="MyminiSpring:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="MyminiSpring.war">
+      <element id="artifact" artifact-name="MyminiSpring:war exploded" />
+    </root>
+  </artifact>
+</component>

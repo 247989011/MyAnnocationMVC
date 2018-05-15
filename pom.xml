@@ -5,15 +5,116 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.pan</groupId>
-    <artifactId>MyAnnocationMVC</artifactId>
+    <artifactId>MyminiSpring</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <packaging>war</packaging>
     <properties>
         <!-- 文件拷贝时的编码 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- 编译时的编码 -->
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <!-- 依赖版本控制-->
+        <servlet.api.version>2.4</servlet.api.version>
+
+        <!--插件版本控制-->
+        <jetty.version>9.4.9.v20180320</jetty.version>
+
     </properties>
-    
+
+    <dependencies>
+        <!-- J2EE-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet.api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <outputDirectory>/target/WEB-INF/classes</outputDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty.version}</version>
+                <configuration>
+                    <httpConnector>
+                        <port>8085</port>
+                        <!--<host></host>
+                        <name></name>--><!--连接器的名称，https://www.eclipse.org/jetty/documentation/current/serving-webapp-from-particular-port.html-->
+                        <!--<idleTimeout></idleTimeout>
+                        <soLinger></soLinger>-->
+                    </httpConnector>
+                    <stopKey>stop</stopKey>
+                    <stopPort>4501</stopPort>
+                    <!--These configuration parameters apply to your webapp. They are common to almost all goals.-->
+                    <webAppConfig>
+                        <contextPath>/</contextPath>
+                        <!--The path to the web.xml file for your webapp.-->
+                       <!-- <descriptor>${project.basedir}/web/WEB-INF/web.xml</descriptor>-->
+                    </webAppConfig>
+                    <!--<webAppSourceDirectory>${project.basedir}/web</webAppSourceDirectory>-->
+                    <classesDirectory>${build.outputDirectory}</classesDirectory>
+                    <!--扫描进行热部署的间隔时间-->
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <!--<scanTargets>
+                        <scanTarget>${project.basedir}/src/main/java</scanTarget>
+                        <scanTarget>${project.basedir}/src/test/java</scanTarget>
+                    </scanTargets>
+                    <scanTargetPatterns>
+                        <scanTargetPattern>
+                            <directory>src/main/resources</directory>
+                            <includes>
+                                <include>**/*.xml</include>
+                                <include>**/*.properties</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/myspecial.xml</exclude>
+                                <exclude>**/myspecial.properties</exclude>
+                            </excludes>
+                        </scanTargetPattern>
+                    </scanTargetPatterns>-->
+                    <!--访问日志-->
+                    <requestLog implementation="org.eclipse.jetty.server.NCSARequestLog">
+                        <filename>target/access-yyyy_mm_dd.log</filename>
+                        <filenameDateFormat>yyyy_MM_dd</filenameDateFormat>
+                        <logDateFormat>yyyy-MM-dd HH:mm:ss</logDateFormat>
+                        <logTimeZone>GMT+8:00</logTimeZone>
+                        <append>true</append><!--追加到日志-->
+                        <logServer>true</logServer><!--记录访问的主机名-->
+                        <retainDays>1</retainDays><!--日志文件保存的天数, 超过删除-->
+                        <logCookies>true</logCookies><!--记录 cookies-->
+                    </requestLog>
+
+
+                </configuration>
+
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
 </project>

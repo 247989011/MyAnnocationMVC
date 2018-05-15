@@ -1,0 +1,28 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="MyminiSpring:war exploded">
+    <output-path>$PROJECT_DIR$/target/MyminiSpring</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="MyminiSpring" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javassist:javassist:3.1" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-webapp:9.4.9.v20180320" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-xml:9.4.9.v20180320" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-util:9.4.9.v20180320" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-servlet:9.4.9.v20180320" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-security:9.4.9.v20180320" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-server:9.4.9.v20180320" />
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.1.0" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-http:9.4.9.v20180320" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-io:9.4.9.v20180320" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/MyminiSpring/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="MyminiSpring/web/Web" />
+    </root>
+  </artifact>
+</component>
